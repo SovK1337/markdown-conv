@@ -1,5 +1,6 @@
 #include <crow.h>
 #include "markdown.hpp"
+#include <string>
 
 int main(){
     crow::SimpleApp app;
@@ -23,5 +24,7 @@ int main(){
             return crow::response(response);
         });
 
+    std::cout << "Runnning on port 7313" << std::endl;
+    
     app.port(7313).multithreaded().run();
 }

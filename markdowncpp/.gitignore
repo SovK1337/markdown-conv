@@ -24,5 +24,18 @@ dist-ssr
 *.sw?
 
 # CPP
-a.out
+*.out
 *.exe
+
+# CMake generated files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+compile_commands.json
+
+# VCPKG/dependencies
+/vcpkg_installed/
+
+# CMake build output
+/build/
+/cmake-build-*/

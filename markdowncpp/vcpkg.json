@@ -1,0 +1,7 @@
+{
+    "name": "markdown-conv",
+    "version-string": "0.1.0",
+    "dependencies": [
+        "crow"
+    ]
+}

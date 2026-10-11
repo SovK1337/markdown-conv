@@ -9,6 +9,7 @@
                 "-g",
                 "${file}",
                 "-o",
+                "-IC:\Users\Documents\vcpkg\installed\x64-windows\include"
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],
             "options": {
