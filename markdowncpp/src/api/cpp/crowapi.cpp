@@ -9,9 +9,15 @@ int main(){
     CROW_ROUTE(app, "/markdown").methods(crow::HTTPMethod::POST)
     ([&mk](const crow::request& req)
         {
+            std::cout << "Request body: [" << req.body << "]" << std::endl;
             auto body = crow::json::load(req.body);
-            if(!body || !body.has("text")){
-                return crow::response("Missing 'text'");
+            if(!body){
+                return crow::response("Missing 'text'->1");
+            }else if(!body.has("text")){
+                return crow::response("Missing 'text'->2");
+            }
+            else if(!body && !body.has("text")){
+                return crow::response("Missing 'text'->3");
             }
 
             std::string input = body["text"].s();

@@ -1,6 +1,11 @@
 import express from "express";
+import cors from "cors";
 
 const app = express();
+
+app.use(cors({
+    origin: "http://localhost:5173"
+}));
 
 app.use(express.json());
 
@@ -16,7 +21,7 @@ app.post("/markdown", async (req, res) => {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                text: req.body.text
+                text: "## Hello World!"
             })
         });
 
