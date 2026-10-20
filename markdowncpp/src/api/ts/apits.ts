@@ -21,7 +21,7 @@ app.post("/markdown", async (req, res) => {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                text: "## Hello World!"
+                text: req.body.text
             })
         });
 
