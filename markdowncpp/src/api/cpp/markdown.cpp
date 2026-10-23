@@ -1,35 +1,42 @@
 #include "markdown.hpp"
-
 #include <string>
 
 std::string MarkDown::identifyTag(const std::string& text)
 {
-    int identify = 0;
-    std::string inpFullSTR;
+    int idTag = 0;
+    bool isBold = false;
+    std::string content;
     bool readingText = false;
 
-    for (auto i : text) {
-        if (!readingText && i == '#') {
-            identify += 1;
+    for (char c : text) {
+        if (!readingText && c == '#') {
+            idTag++;
         }
-        else if (!readingText && i == ' ') {
+        else if (!readingText && c == '!') {
+            isBold = true;
+        }
+        else if (!readingText && c == ' ') {
             readingText = true;
         }
         else {
             readingText = true;
-            inpFullSTR.push_back(i);
+            content.push_back(c);
         }
     }
 
-    if (identify == 1) {
-        return "<h1>" + inpFullSTR + "</h1>";
-    }
-    else if (identify == 2) {
-        return "<h2>" + inpFullSTR + "</h2>";
-    }
-    else if (identify == 3) {
-        return "<h3>" + inpFullSTR + "</h3>";
+    if (isBold) {
+        content = "<b>" + content + "</b>";
     }
 
-    return inpFullSTR;
+    if (idTag == 1) {
+        content = "<h1>" + content + "</h1>";
+    }
+    else if (idTag == 2) {
+        content = "<h2>" + content + "</h2>";
+    }
+    else if (idTag == 3) {
+        content = "<h3>" + content + "</h3>";
+    }
+
+    return content;
 }
