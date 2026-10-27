@@ -58,8 +58,7 @@ parsed as JSON or does not contain the `text` field.
 -   **CMake 3.20+** --- configures the C++ build and links the Crow
     target.
 
-The repository also lists Express and CORS as frontend-package
-dependencies, although the conversion endpoint implemented in the C++
+Express and CORS are required, although the conversion endpoint implemented in the C++
 source is provided by Crow.
 
 ## Project structure
@@ -146,15 +145,6 @@ Successful response:
 The exact output depends on the markers recognized by the current
 parser. For example, `! This text will be bold.` produces
 `<b>This text will be bold.</b>`.
-
-## Current implementation note
-
-The C++ server listens on port `7313`, while the frontend currently
-sends requests to `http://localhost:3215/markdown`. These ports do not
-match in the checked-in source. Set the frontend URL and backend
-listening port to the same value before testing the complete
-application. The frontend also expects the backend to be reachable from
-the browser.
 
 ## Scope
 
